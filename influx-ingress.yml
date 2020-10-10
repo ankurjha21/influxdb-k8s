@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+  creationTimestamp: null
+  generation: 1
+  name: influxdb
+  selfLink: /apis/extensions/v1beta1/namespaces/default/ingresses/influxdb
+spec:
+  rules:
+  - host: endpoint.com
+    http:
+      paths:
+      - backend:
+          serviceName: monitoring-influxdb
+          servicePort: 8080
+        path: /
+status:
+  loadBalancer: {}
